@@ -1,0 +1,517 @@
+Index.html<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CL Muktimarcas Luxury — Carros e Motos de Luxo</title>
+  <meta name="description" content="CL Muktimarcas Luxury — Vendas de carros e motos de luxo. Estoque selecionado, atendimento premium e condições exclusivas." />
+  <meta name="keywords" content="carros de luxo, motos de luxo, multimarcas, supercarros, superbikes, concessionária, venda de carros" />
+  <meta property="og:title" content="CL Muktimarcas Luxury" />
+  <meta property="og:description" content="Vendas de carros e motos de luxo com atendimento premium." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/og-image.jpg" />
+  <link rel="icon" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0b0b0c;          /* preto profundo */
+      --panel:#111114;        /* painéis */
+      --text:#f7f7f7;         /* texto principal */
+      --muted:#bcbcbc;        /* texto suave */
+      --gold:#d1b35e;         /* dourado elegante */
+      --gold-2:#b8993e;       /* dourado escuro */
+      --stroke: rgba(255,255,255,.08);
+      --ok:#25D366;           /* WhatsApp */
+      --danger:#ff4d4f;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;scroll-behavior:smooth}
+    body{
+      font-family:'Outfit',system-ui,-apple-system,Segoe UI,Robotto,Helvetica,Arial,sans-serif;
+      background: radial-gradient(80vw 80vh at 60% -10%, rgba(209,179,94,.18), transparent 60%), var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    /* Header */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(8px);
+      background: linear-gradient(0deg, rgba(11,11,12,.7), rgba(11,11,12,.7));
+      border-bottom:1px solid var(--stroke);
+    }
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+    .nav-wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text)}
+    .logo{
+      width:40px;height:40px;border-radius:12px;display:grid;place-items:center;
+      background: linear-gradient(135deg, var(--gold), var(--gold-2));
+      color:#111;font-weight:800;letter-spacing:.5px;
+      box-shadow: var(--shadow);
+    }
+    .brand h1{font-size:1.05rem;margin:0;font-weight:700;letter-spacing:.5px}
+    .brand span{display:block;font-size:.72rem;color:var(--muted);margin-top:-4px}
+    .menu{display:flex;gap:22px;align-items:center}
+    .menu a{color:var(--muted);text-decoration:none;font-weight:500}
+    .menu a:hover{color:var(--text)}
+    .cta{
+      padding:10px 16px;border-radius:999px;border:1px solid var(--gold);
+      color:var(--bg);background: linear-gradient(135deg, var(--gold), var(--gold-2));
+      font-weight:700;text-decoration:none; box-shadow: var(--shadow);
+    }
+    .burger{display:none;background:none;border:0;color:var(--text);font-size:26px}
+
+    /* Hero */
+    .hero{
+      position:relative;overflow:hidden;border-bottom:1px solid var(--stroke);
+    }
+    .hero-inner{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;padding:64px 0}
+    .hero h2{font-size:2.6rem;line-height:1.1;margin:0 0 14px}
+    .hero p{color:var(--muted);margin:0 0 24px}
+    .hero .pills{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 28px}
+    .pill{border:1px solid var(--stroke);padding:8px 12px;border-radius:999px;color:var(--muted);font-size:.9rem}
+    .hero-card{
+      background: linear-gradient(160deg, #141416, #0f0f12 60%);
+      border:1px solid var(--stroke); border-radius: var(--radius);
+      padding:20px; box-shadow: var(--shadow);
+    }
+    .hero-media{
+      border-radius: var(--radius); overflow:hidden; position:relative; aspect-ratio: 16/10;
+      background: linear-gradient(45deg, rgba(209,179,94,.15), rgba(17,17,20,.8)), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1600&auto=format&fit=crop') center/cover;
+      border:1px solid var(--stroke);
+    }
+    .hero-badge{
+      position:absolute;bottom:14px;left:14px;background:rgba(0,0,0,.45);
+      backdrop-filter: blur(4px); border:1px solid var(--stroke); padding:10px 12px; border-radius:12px; font-weight:600
+    }
+
+    /* Filters */
+    .filters{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 24px}
+    .filter-btn{padding:10px 14px;border-radius:999px;border:1px solid var(--stroke);background:#0f0f12;color:var(--muted);cursor:pointer}
+    .filter-btn.active{border-color:var(--gold);color:var(--text)}
+
+    /* Grid */
+    .section{padding:64px 0}
+    .section h3{font-size:1.8rem;margin:0 0 8px}
+    .section p.lead{color:var(--muted);margin:0 0 24px}
+    .grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:18px}
+    .card{
+      background:linear-gradient(180deg, #141416, #0f0f12);
+      border:1px solid var(--stroke); border-radius:var(--radius); overflow:hidden; position:relative;
+      transition: transform .2s ease, border-color .2s ease;
+    }
+    .card:hover{transform: translateY(-4px); border-color: rgba(209,179,94,.35)}
+    .thumb{aspect-ratio: 16/10; background:#0c0c0e; position:relative}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+    .badge{position:absolute;top:10px;left:10px;background:rgba(0,0,0,.55);color:#fff;border:1px solid var(--stroke);padding:6px 10px;border-radius:999px;font-size:.8rem}
+    .sold{right:10px;left:auto;background: linear-gradient(135deg, #111, #1b1b1e); border:1px solid #2a2a2f; color:#bbb}
+    .content{padding:16px}
+    .title{display:flex;justify-content:space-between;align-items:center;gap:10px}
+    .title h4{margin:0;font-size:1.05rem}
+    .price{font-weight:800;color:var(--gold)}
+    .specs{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;color:var(--muted);font-size:.92rem}
+    .specs span{padding:6px 10px;border:1px solid var(--stroke);border-radius:999px}
+    .card .actions{display:flex;gap:10px;margin-top:14px}
+    .btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 12px;border-radius:12px;border:1px solid var(--stroke);text-decoration:none;color:var(--text);background:#121216}
+    .btn.primary{background: linear-gradient(135deg, var(--gold), var(--gold-2)); color:#111; border-color:transparent; font-weight:800}
+
+    /* About */
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+    .about .panel{background:linear-gradient(180deg, #141416, #0f0f12);border:1px solid var(--stroke);border-radius:var(--radius);padding:22px}
+    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+    .kpi{background:#0f0f12;border:1px solid var(--stroke);border-radius:14px;padding:16px;text-align:center}
+    .kpi b{display:block;font-size:1.4rem;color:var(--gold)}
+
+    /* Contact */
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+    form{display:grid;gap:12px}
+    input, textarea, select{background:#0f0f12;border:1px solid var(--stroke);border-radius:12px;padding:12px;color:var(--text);font:inherit}
+    textarea{min-height:120px;resize:vertical}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .tip{color:var(--muted);font-size:.9rem}
+    .whats{
+      display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;text-decoration:none;
+      background:#112317;border:1px solid #1f3c29; color:#c7f3d9; font-weight:700
+    }
+
+    /* Footer */
+    footer{border-top:1px solid var(--stroke);padding:30px 0;color:var(--muted)}
+    .foot{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .social a{color:var(--muted);text-decoration:none;margin-right:14px}
+    .social a:hover{color:var(--text)}
+
+    /* Responsive */
+    @media (max-width:1024px){
+      .hero-inner{grid-template-columns:1fr;gap:24px}
+      .about,.contact{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2, 1fr)}
+    }
+    @media (max-width:680px){
+      .nav-wrap{height:64px}
+      .menu{display:none;position:absolute;top:64px;left:0;right:0;background:#101014;border-bottom:1px solid var(--stroke);flex-direction:column;padding:16px}
+      .menu.open{display:flex}
+      .burger{display:block}
+      .grid{grid-template-columns:1fr}
+      .form-row{grid-template-columns:1fr}
+      .hero h2{font-size:2.1rem}
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container nav-wrap">
+      <a href="#top" class="brand">
+        <div class="logo">CL</div>
+        <div>
+          <h1>CL Muktimarcas Luxury</h1>
+          <span>Carros & Motos de Luxo</span>
+        </div>
+      </a>
+      <button class="burger" aria-label="Abrir menu" onclick="document.querySelector('.menu').classList.toggle('open')">☰</button>
+      <div class="menu">
+        <a href="#estoque">Estoque</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+        <a class="cta" href="https://wa.me/5562991173072?text=Olá,%20vim%20pelo%20site%20e%20quero%20saber%20mais%20sobre%20um%20veículo." target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="top">
+    <div class="container hero-inner">
+      <div>
+        <div class="pill">Estoque Premium • Garantia • Procedência</div>
+        <h2>Experiência <span style="color:var(--gold)">Luxury</span> em cada detalhe.</h2>
+        <p>Seleção exclusiva de supercarros e superbikes, revisão completa, laudo cautelar e atendimento consultivo para você fechar negócio com total confiança.</p>
+        <div class="pills">
+          <div class="pill">Entrega em todo o Brasil</div>
+          <div class="pill">Avaliação do seu usado</div>
+          <div class="pill">Financiamento & Consórcio</div>
+        </div>
+        <a class="cta" href="#estoque">Ver estoque</a>
+      </div>
+      <div class="hero-card">
+        <div class="hero-media">
+          <div class="hero-badge">Lamborghini • Ferrari • Porsche • Ducati • BMW M</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ESTOQUE -->
+  <section class="section" id="estoque">
+    <div class="container">
+      <h3>Estoque em destaque</h3>
+      <p class="lead">Carros e motos selecionados, revisados e prontos para acelerar.</p>
+
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="carro">Carros</button>
+        <button class="filter-btn" data-filter="moto">Motos</button>
+        <button class="filter-btn" data-filter="novo">Somente novos</button>
+      </div>
+
+      <div class="grid" id="grid">
+        <!-- CARD 1 -->
+        <article class="card" data-type="carro" data-state="novo">
+          <div class="thumb">
+            <img src="https://images.unsplash.com/photo-1517153295259-74eb0b4c4e7f?q=80&w=1600&auto=format&fit=crop" alt="Porsche 911 Turbo S"/>
+            <span class="badge">Novo</span>
+          </div>
+          <div class="content">
+            <div class="title">
+              <h4>Porsche 911 Turbo S</h4>
+              <div class="price">R$ 1.890.000</div>
+            </div>
+            <div class="specs">
+              <span>2024</span>
+              <span>0 km</span>
+              <span>650 cv</span>
+              <span>AWD</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="#contato">Detalhes</a>
+              <a class="btn primary" target="_blank" rel="noopener" href="https://wa.me/5562991173072?text=Tenho%20interesse%20no%20Porsche%20911%20Turbo%20S">Chamar no WhatsApp</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 2 -->
+        <article class="card" data-type="carro" data-state="seminovo">
+          <div class="thumb">
+            <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?q=80&w=1600&auto=format&fit=crop" alt="Ferrari 488 GTB"/>
+            <span class="badge">Seminovo</span>
+          </div>
+          <div class="content">
+            <div class="title">
+              <h4>Ferrari 488 GTB</h4>
+              <div class="price">R$ 2.350.000</div>
+            </div>
+            <div class="specs">
+              <span>2019</span>
+              <span>12.500 km</span>
+              <span>670 cv</span>
+              <span>V8 Biturbo</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="#contato">Detalhes</a>
+              <a class="btn primary" target="_blank" rel="noopener" href="https://wa.me/5562991173072?text=Tenho%20interesse%20na%20Ferrari%20488%20GTB">Chamar no WhatsApp</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 3 -->
+        <article class="card" data-type="moto" data-state="seminovo">
+          <div class="thumb">
+            <img src="https://images.unsplash.com/photo-1493238792000-8113da705763?q=80&w=1600&auto=format&fit=crop" alt="Ducati Panigale V4"/>
+            <span class="badge">Superbike</span>
+            <span class="badge sold">Disponível</span>
+          </div>
+          <div class="content">
+            <div class="title">
+              <h4>Ducati Panigale V4</h4>
+              <div class="price">R$ 169.900</div>
+            </div>
+            <div class="specs">
+              <span>2022</span>
+              <span>7.800 km</span>
+              <span>214 cv</span>
+              <span>V4</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="#contato">Detalhes</a>
+              <a class="btn primary" target="_blank" rel="noopener" href="https://wa.me/5562991173072?text=Tenho%20interesse%20na%20Ducati%20Panigale%20V4">Chamar no WhatsApp</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 4 -->
+        <article class="card" data-type="carro" data-state="seminovo">
+          <div class="thumb">
+            <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?q=80&w=1600&auto=format&fit=crop" alt="Lamborghini Huracán EVO"/>
+            <span class="badge">Seminovo</span>
+          </div>
+          <div class="content">
+            <div class="title">
+              <h4>Lamborghini Huracán EVO</h4>
+              <div class="price">R$ 3.200.000</div>
+            </div>
+            <div class="specs">
+              <span>2020</span>
+              <span>9.300 km</span>
+              <span>640 cv</span>
+              <span>V10</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="#contato">Detalhes</a>
+              <a class="btn primary" target="_blank" rel="noopener" href="https://wa.me/5562991173072?text=Tenho%20interesse%20no%20Huracán%20EVO">Chamar no WhatsApp</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 5 -->
+        <article class="card" data-type="moto" data-state="novo">
+          <div class="thumb">
+            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?q=80&w=1600&auto=format&fit=crop" alt="BMW S 1000 RR"/>
+            <span class="badge">Novo</span>
+          </div>
+          <div class="content">
+            <div class="title">
+              <h4>BMW S 1000 RR</h4>
+              <div class="price">R$ 142.900</div>
+            </div>
+            <div class="specs">
+              <span>2024</span>
+              <span>0 km</span>
+              <span>210 cv</span>
+              <span>ShiftCam</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="#contato">Detalhes</a>
+              <a class="btn primary" target="_blank" rel="noopener" href="https://wa.me/5562991173072?text=Tenho%20interesse%20na%20BMW%20S%201000%20RR">Chamar no WhatsApp</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 6 -->
+        <article class="card" data-type="carro" data-state="seminovo">
+          <div class="thumb">
+            <img src="https://images.unsplash.com/photo-1549923746-c502d488b3ea?q=80&w=1600&auto=format&fit=crop" alt="Audi R8 V10 Performance"/>
+            <span class="badge">Seminovo</span>
+          </div>
+          <div class="content">
+            <div class="title">
+              <h4>Audi R8 V10 Performance</h4>
+              <div class="price">R$ 1.650.000</div>
+            </div>
+            <div class="specs">
+              <span>2021</span>
+              <span>14.200 km</span>
+              <span>620 cv</span>
+              <span>V10</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="#contato">Detalhes</a>
+              <a class="btn primary" target="_blank" rel="noopener" href="https://wa.me/5562991173072?text=Tenho%20interesse%20no%20Audi%20R8%20V10">Chamar no WhatsApp</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="section" id="sobre">
+    <div class="container about">
+      <div class="panel">
+        <h3>Sobre a CL Muktimarcas Luxury</h3>
+        <p>Somos uma boutique automotiva especializada em veículos de alto padrão. Curadoria rigorosa, histórico transparente, laudos cautelares e preparação estética minuciosa garantem a melhor experiência de compra — do primeiro contato à entrega na sua garagem.</p>
+        <div class="kpis">
+          <div class="kpi"><b>+350</b> veículos entregues</div>
+          <div class="kpi"><b>4.9★</b> avaliação de clientes</div>
+          <div class="kpi"><b>24h</b> para proposta e aprovação</div>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Diferenciais</h3>
+        <ul>
+          <li>Atendimento consultivo e exclusivo</li>
+          <li>Garantia e procedência com laudo</li>
+          <li>Aceitamos seu usado na troca</li>
+          <li>Entrega em todo o Brasil</li>
+          <li>Parcerias com financeiras premium</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="section" id="contato">
+    <div class="container contact">
+      <div>
+        <h3>Fale com a gente</h3>
+        <p class="lead">Tire suas dúvidas, solicite avaliação do seu veículo ou peça uma proposta personalizada.</p>
+        <form onsubmit="sendForm(event)">
+          <div class="form-row">
+            <input type="text" name="nome" placeholder="Seu nome" required>
+            <input type="tel" name="telefone" placeholder="WhatsApp" required>
+          </div>
+          <div class="form-row">
+            <select name="interesse" required>
+              <option value="">Tenho interesse em…</option>
+              <option value="carro">Carro</option>
+              <option value="moto">Moto</option>
+              <option value="avaliacao">Avaliação do meu veículo</option>
+            </select>
+            <input type="text" name="modelo" placeholder="Modelo / Ano">
+          </div>
+          <textarea name="mensagem" placeholder="Mensagem"></textarea>
+          <div class="tip">Ao enviar, você será redirecionado para o WhatsApp com sua mensagem preenchida.</div>
+          <button class="btn primary" type="submit">Enviar pelo WhatsApp</button>
+        </form>
+        <p style="margin-top:14px">
+          ou, se preferir, clique aqui: 
+          <a class="whats" target="_blank" rel="noopener" href="https://wa.me/5562991173072?text=Olá,%20tenho%20interesse%20nos%20veículos%20da%20CL%20Muktimarcas%20Luxury">WhatsApp direto</a>
+        </p>
+      </div>
+      <div>
+        <div class="panel" style="height:100%">
+          <h3>Visite nosso showroom</h3>
+          <p>Endereço (exemplo): Av. das Nações, 1000 — Setor Sul, Goiânia — GO</p>
+          <p>Horário: Seg a Sex, 9h às 18h • Sáb, 9h às 13h</p>
+          <div class="hero-media" style="aspect-ratio:16/9;margin-top:10px;background-image:url('https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1600&auto=format&fit=crop');">
+            <div class="hero-badge">Showroom Premium</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container foot">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div class="logo" style="width:32px;height:32px;border-radius:10px">CL</div>
+        <span>© <span id="year"></span> CL Muktimarcas Luxury — Todos os direitos reservados.</span>
+      </div>
+      <div class="social">
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="YouTube">YouTube</a>
+        <a href="#" aria-label="TikTok">TikTok</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Ano automático no rodapé
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Filtros de estoque
+    const buttons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.card');
+    buttons.forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        buttons.forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        cards.forEach(card=>{
+          const type = card.getAttribute('data-type');
+          const state = card.getAttribute('data-state');
+          let show = true;
+          if(filter==='carro') show = type==='carro';
+          if(filter==='moto') show = type==='moto';
+          if(filter==='novo') show = state==='novo';
+          card.style.display = show? 'block':'none';
+        })
+      })
+    })
+
+    // Enviar formulário abrindo WhatsApp com mensagem pré-preenchida
+    function sendForm(e){
+      e.preventDefault();
+      const form = e.target;
+      const nome = encodeURIComponent(form.nome.value);
+      const tel = encodeURIComponent(form.telefone.value);
+      const interesse = encodeURIComponent(form.interesse.value);
+      const modelo = encodeURIComponent(form.modelo.value);
+      const msg = encodeURIComponent(form.mensagem.value);
+      const texto = `Olá! Meu nome é ${nome}. Telefone/WhatsApp: ${tel}. Tenho interesse em: ${interesse}. Modelo/Detalhes: ${modelo}. Mensagem: ${msg}`;
+      const phone = '5562991173072'; // WhatsApp de atendimento
+      const url = `https://wa.me/${phone}?text=${texto}`;
+      window.open(url,'_blank');
+    }
+  </script>
+
+  <!-- Schema.org (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutomotiveBusiness",
+    "name": "CL Muktimarcas Luxury",
+    "url": "https://www.clmuktimarcasluxury.com.br/",
+    "description": "Vendas de carros e motos de luxo com atendimento premium.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. das Nações, 1000",
+      "addressLocality": "Goiânia",
+      "addressRegion": "GO",
+      "postalCode": "74000-000",
+      "addressCountry": "BR"
+    },
+    "telephone": "+55 62 99117-3072",
+    "openingHours": "Mo-Fr 09:00-18:00, Sa 09:00-13:00",
+    "areaServed": "BR",
+    "image": [
+      "https://images.unsplash.com/photo-1503376780353-7e6692767b70",
+      "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d"
+    ]
+  }
+  </script>
+</body>
+</html>
